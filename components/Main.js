@@ -34,11 +34,13 @@ export default class Main extends Component {
   //(rowData, sectionID, rowID, highlightRow) => renderable
   renderRow = (artist, sId, rId) => {
     const image = artist.images.length ? artist.images[0].url : null
-    
+
     return (
       <ListRow index={rId}
         text={artist.name}
         cover={image}
+        url={artist.external_urls.spotify}
+        navigation={this.props.navigation}
       />
     )
   }
@@ -62,7 +64,8 @@ export default class Main extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Spotify Artists</Text>
-        <TextInput underlineColorAndroid='transparent'
+        <TextInput 
+        underlineColorAndroid='transparent'
         placeholder="Search artists"
         onChangeText={(text) => this.setState({query: text})}
         onSubmitEditing={makeQuery} 

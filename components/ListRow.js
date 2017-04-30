@@ -12,22 +12,30 @@ import clrs from '../utils/clrs'
 const placeholder = require('../assets/placeholder.png')
 const imgBorderRadius = 20;
 
-const ListRow = ({text, cover}) => {
-  const imageUrl = cover ? {uri : cover} : placeholder
+export default class ListRow extends Component{
+  constructor(props){
+    super(props)
+  }
+  onPressButton = () => {this.props.navigation.navigate('Artist', url)} 
 
-  return (
-    <TouchableNativeFeedback
-      underlayColor={clrs.gray}>
+  render(){
+    const cover = this.props.cover
+    const imageUrl = cover ? {uri : cover} : placeholder
+    
+    
+    return (
+      <TouchableNativeFeedback
+        underlayColor={clrs.gray}
+        onPress={this.onPressButton}>
 
-      <View style={styles.mediaObject}>
-        <Image source={imageUrl} style={styles.image}/>
-        <Text style={styles.text}>{text}</Text>
-      </View>
-    </TouchableNativeFeedback>
-  )
+        <View index={this.props.rId} style={styles.mediaObject}>
+          <Image source={imageUrl} style={styles.image}/>
+          <Text style={styles.text}>{this.props.text}</Text>
+        </View>
+      </TouchableNativeFeedback>
+    )
+  }
 }
-
-export default ListRow;
 
 const styles = StyleSheet.create({
   mediaObject: {
