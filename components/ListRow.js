@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import clrs from '../utils/clrs'
+import FadeInView from './FadeInView'
 
 const placeholder = require('../assets/placeholder.png')
 const imgBorderRadius = 20;
@@ -16,23 +17,27 @@ export default class ListRow extends Component{
   constructor(props){
     super(props)
   }
-  onPressButton = () => {this.props.navigation.navigate('Artist', url)} 
+  
+  onSelectRow = () => alert(this.props.text + " Selected")
+
 
   render(){
     const cover = this.props.cover
+    const index = this.props.index
     const imageUrl = cover ? {uri : cover} : placeholder
     
-    
     return (
-      <TouchableNativeFeedback
-        underlayColor={clrs.gray}
-        onPress={this.onPressButton}>
+      <FadeInView delay={index * 35}>
+        <TouchableNativeFeedback
+          underlayColor={clrs.gray}
+          onPress={this.onSelectRow}>
 
-        <View index={this.props.rId} style={styles.mediaObject}>
-          <Image source={imageUrl} style={styles.image}/>
-          <Text style={styles.text}>{this.props.text}</Text>
-        </View>
-      </TouchableNativeFeedback>
+            <View index={this.props.rId} style={styles.mediaObject}>
+              <Image source={imageUrl} style={styles.image}/>
+              <Text style={styles.text}>{this.props.text}</Text>
+            </View>
+        </TouchableNativeFeedback>
+      </FadeInView>
     )
   }
 }
