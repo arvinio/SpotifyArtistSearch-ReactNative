@@ -9,7 +9,6 @@ export function searchFor(query) {
   );
 
   return get(requestUrl).then((res) => {
-    //TODO understand JSON traversal
     const artists = res.artists ? res.artists.items : []
 
     return artists
