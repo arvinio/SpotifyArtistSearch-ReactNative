@@ -9,6 +9,7 @@ import {
 
 import clrs from '../utils/clrs'
 import FadeInView from './FadeInView'
+import {Actions} from 'react-native-router-flux' 
 
 const placeholder = require('../assets/placeholder.png')
 const imgBorderRadius = 20;
@@ -18,8 +19,10 @@ export default class ListRow extends Component{
     super(props)
   }
   
-  onSelectRow = () => alert(this.props.text + " Selected")
-
+  onSelectRow = () => Actions.artist({
+    name: this.props.text,
+    url: this.props.url
+  })
 
   render(){
     const cover = this.props.cover
