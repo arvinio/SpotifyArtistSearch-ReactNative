@@ -5,9 +5,8 @@ import {Router, Scene} from 'react-native-router-flux'
 import clrs from '../utils/clrs'
 import {StyleSheet} from 'react-native';
 
-export default class Root extends Component{
+export default class App extends Component{
   render() {
-    //
     return(
       <Router navigationBarStyle={styles.navBar}>
         <Scene key='root'>

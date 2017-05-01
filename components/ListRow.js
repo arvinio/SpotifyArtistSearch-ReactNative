@@ -57,9 +57,7 @@ const styles = StyleSheet.create({
     fontWeight: '200',
     flex: 1,
     flexDirection: 'column',
-    //lineHeight: 35,
     textAlignVertical: 'center',
-    //alignItems: 'center'
   },
   image: {
     backgroundColor: clrs.gray,

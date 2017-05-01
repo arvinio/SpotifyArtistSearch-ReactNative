@@ -15,7 +15,6 @@ import ListRow from './ListRow'
 
 import {searchFor} from '../utils/fetcher'
 
-
 export default class Main extends Component {
   constructor(props) {
     super(props)
@@ -38,13 +37,11 @@ export default class Main extends Component {
         text={artist.name}
         cover={image}
         url={artist.external_urls.spotify}
-        navigation={this.props.navigation}
       />
     )
   }
 
   render() {
-
     makeQuery = () => {
       searchFor(this.state.query)
         .then( (result) => this.setState({
@@ -68,9 +65,7 @@ export default class Main extends Component {
         renderRow={this.renderRow} />
       </View>
     );
-
   }
-
 }
 
 const styles = StyleSheet.create({
@@ -79,9 +74,7 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 35,
     fontWeight: '300',
-    //lineHeight: 35,
     textAlign: 'center',
-    //alignItems: 'center'
   },
   listView: {
     flex: 1,
