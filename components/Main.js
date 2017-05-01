@@ -13,7 +13,6 @@ import {
 import clrs from '../utils/clrs'
 import ListRow from './ListRow'
 
-//TODO understand spread
 import {searchFor} from '../utils/fetcher'
 
 
@@ -31,7 +30,6 @@ export default class Main extends Component {
     }
   }
 
-  //(rowData, sectionID, rowID, highlightRow) => renderable
   renderRow = (artist, sId, rId) => {
     const image = artist.images.length ? artist.images[0].url : null
 
@@ -45,14 +43,8 @@ export default class Main extends Component {
     )
   }
 
-  //TODO add item to list with push of button
-  //onButtonClick = () => {this.data.push('NewItem')}
-  //<Button onPress={onButtonClick} title='Add ListItem' color="#63625c"  />
-
-
   render() {
 
-    //TODO understand updating ListView
     makeQuery = () => {
       searchFor(this.state.query)
         .then( (result) => this.setState({
